@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+🛒 Server-Rendered E-commerce Product Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A secure, high-performance, server-side rendered (SSR) admin dashboard for managing products in an e-commerce system. Built with Next.js, this dashboard focuses on scalability, SEO, fast load times, and enterprise-grade admin controls.
 
-Currently, two official plugins are available:
+🚀 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a real-world admin-only product management system where authorized administrators can create, update, delete, and analyze products efficiently.
+All core pages are server-rendered, ensuring faster performance, better SEO, and improved reliability.
 
-## React Compiler
+The dashboard supports secure authentication, role-based access control, image uploads, analytics, and multi-step forms, making it suitable for production deployment.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✨ Key Features
+🔹 Server-Side Rendering (SSR)
 
-## Expanding the ESLint configuration
+Built with Next.js App Router
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Server Components and Server Actions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Optimized for SEO and fast initial page loads
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🔹 Authentication & Authorization
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Admin-only access using NextAuth.js
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Role-based access control (RBAC):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+SUPER_ADMIN
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ADMIN
+
+Secure login & logout
+
+Protected routes with server-side role validation
+
+🔹 Product Management (CRUD)
+
+Create, Read, Update, Delete products
+
+Pagination, search, and filtering
+
+Soft delete support
+
+Optimistic UI updates
+
+🔹 Multi-Step Product Forms
+
+Step-based product creation
+
+Strong validation using Zod
+
+Inline error handling
+
+Review before submission
+
+🔹 Secure Image Uploads
+
+Cloud-based image storage
+
+Signed uploads for security
+
+Multiple image support
+
+File type & size restrictions
+
+🔹 Dashboard Analytics
+
+Sales and inventory insights
+
+Interactive charts
+
+Server-rendered analytics with client hydration
+
+🔹 Admin Onboarding (Hidden Feature)
+
+Admin management page accessible only to SUPER_ADMIN
+
+Invite new admins
+
+Assign or revoke roles
+
+Disable admin accounts
+
+🧱 Tech Stack
+Layer	Technology
+Framework	Next.js (App Router)
+Rendering	Server-Side Rendering (SSR)
+Database	MongoDB (Mongoose) or PostgreSQL (Prisma)
+Authentication	NextAuth.js
+Data Fetching	React Query or SWR
+Validation	Zod
+Charts	Recharts or Chart.js
+Image Storage	Cloudinary or AWS S3
+Styling	Tailwind CSS + shadcn/ui
+🔐 Security Highlights
+
+Server-side role verification
+
+Protected Server Actions
+
+No sensitive credentials exposed to client
+
+Secure image uploads via signed URLs
+
+CSRF-safe authentication flows
